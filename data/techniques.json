@@ -1,0 +1,3219 @@
+[
+  {
+    "id": "phrase_blend",
+    "name": "Phrase Blend",
+    "family": "Transition",
+    "description": "Smooth 16/32-bar phrase-aligned blend.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply phrase blend gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "bass_swap",
+    "name": "Progressive Bass Swap",
+    "family": "Transition",
+    "description": "Swap low-end ownership without kick/bass collision.",
+    "baseScore": 58,
+    "difficulty": 3,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply progressive bass swap gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "filter_sweep",
+    "name": "Filter Sweep Exit",
+    "family": "FX",
+    "description": "HPF/LPF transition with controlled energy lift.",
+    "baseScore": 58,
+    "difficulty": 3,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply filter sweep exit gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "echo_out",
+    "name": "Echo Out",
+    "family": "FX",
+    "description": "Echo the tail of A, cut body, reveal B.",
+    "baseScore": 58,
+    "difficulty": 3,
+    "energyFit": [
+      "reset",
+      "reset"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "vocal_tail"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply echo out gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "reverb_wash",
+    "name": "Reverb Wash",
+    "family": "FX",
+    "description": "Dissolve A into space, enter B underneath.",
+    "baseScore": 58,
+    "difficulty": 3,
+    "energyFit": [
+      "reset",
+      "reset"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply reverb wash gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "loop_exit",
+    "name": "Loop Exit Build",
+    "family": "Transition",
+    "description": "Shrink loop length before release into B.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "build",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply loop exit build gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "build",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "loop_roll",
+    "name": "Loop Roll Accent",
+    "family": "Transition",
+    "description": "Slip-style rhythmic repeat while transport continues.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply loop roll accent gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "drop_swap",
+    "name": "Drop Swap",
+    "family": "Transition",
+    "description": "Hard cut from A phrase end into B drop.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply drop swap gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "double_drop",
+    "name": "Double Drop",
+    "family": "Transition",
+    "description": "Align two drops for simultaneous impact.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [
+      "harmonic_clash"
+    ],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply double drop gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "wordplay",
+    "name": "Wordplay Handoff",
+    "family": "Transition",
+    "description": "Connect lyric/semantic phrase from A to B.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "hiphop",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "vocal_tail"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply wordplay handoff gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "vocal_handoff",
+    "name": "Vocal Handoff",
+    "family": "Transition",
+    "description": "Let A vocal tail answer B vocal entry.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "hiphop",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "vocal_tail"
+    ],
+    "risks": [
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply vocal handoff gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "acapella_overlay",
+    "name": "Acapella Overlay",
+    "family": "Transition",
+    "description": "Keep vocal stem over B instrumental.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "emotional",
+      "emotional"
+    ],
+    "styleFit": [
+      "hiphop",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [
+      "harmonic_clash",
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem",
+      "stem separation available"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply acapella overlay gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "emotional",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "drum_swap",
+    "name": "Drum Swap",
+    "family": "Transition",
+    "description": "Replace drums while keeping melody/vocal continuity.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "build",
+      "peak"
+    ],
+    "styleFit": [
+      "hiphop",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem",
+      "stem separation available"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply drum swap gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "build",
+      "phrase",
+      "transition"
+    ],
+    "executable": false
+  },
+  {
+    "id": "stem_roll",
+    "name": "Stem Roll",
+    "family": "Transition",
+    "description": "Roll only vocal/melody/drum stem for a fill.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem",
+      "stem separation available"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply stem roll gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "backspin",
+    "name": "Backspin Exit",
+    "family": "Transition",
+    "description": "Turntable-like rewind as intentional reset.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "reset",
+      "reset"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply backspin exit gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "brake",
+    "name": "Vinyl Brake",
+    "family": "Transition",
+    "description": "Slowdown stop into next cue.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "reset",
+      "reset"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply vinyl brake gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "noise_riser",
+    "name": "Noise Riser",
+    "family": "FX",
+    "description": "Noise color FX builds tension before B.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "build",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply noise riser gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "build",
+      "phrase",
+      "fx"
+    ]
+  },
+  {
+    "id": "gate_cut",
+    "name": "Gate Cut",
+    "family": "FX",
+    "description": "Rhythmic volume chopping at phrase end.",
+    "baseScore": 58,
+    "difficulty": 3,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply gate cut gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "trans_cut",
+    "name": "Trans Cut",
+    "family": "FX",
+    "description": "Fast tremolo-style beat-synced cut.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply trans cut gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "delay_throw",
+    "name": "Delay Throw",
+    "family": "FX",
+    "description": "Throw one word/hit into delay then transition.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "vocal_tail"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply delay throw gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "low_kill",
+    "name": "Low Kill Drop",
+    "family": "Transition",
+    "description": "Instant low cut then B low-end takeover.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply low kill drop gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "high_pass_tease",
+    "name": "High-pass Tease",
+    "family": "Transition",
+    "description": "Remove body from A while B grows.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply high-pass tease gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "mashup_bridge",
+    "name": "Mashup Bridge",
+    "family": "Transition",
+    "description": "Temporary layered hook bridge.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "emotional",
+      "emotional"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "harmonic_clash",
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply mashup bridge gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "emotional",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "break_to_break",
+    "name": "Break-to-Break Blend",
+    "family": "Transition",
+    "description": "Ambient/low drum sections overlap.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply break-to-break blend gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "chorus_cut",
+    "name": "Chorus Cut",
+    "family": "Transition",
+    "description": "Exit after chorus resolution into next hook.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply chorus cut gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "percussion_bridge",
+    "name": "Percussion Bridge",
+    "family": "Transition",
+    "description": "Percussive intro overlays A outro.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply percussion bridge gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "siren_release",
+    "name": "Siren Release",
+    "family": "FX",
+    "description": "Short siren/noise accent for festival reset.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply siren release gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "phrase",
+      "fx"
+    ]
+  },
+  {
+    "id": "half_time_flip",
+    "name": "Half-time Flip",
+    "family": "Transition",
+    "description": "Move between halftime/doubletime feel.",
+    "baseScore": 50,
+    "difficulty": 5,
+    "energyFit": [
+      "experimental",
+      "experimental"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply half-time flip gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "experimental",
+      "phrase",
+      "transition"
+    ]
+  },
+  {
+    "id": "key_lift",
+    "name": "Key Lift Transition",
+    "family": "Transition",
+    "description": "Compatible upward key move for brighter energy.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "emotional",
+      "emotional"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "harmonic_clash"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply key lift transition gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "emotional",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "energy_dip",
+    "name": "Energy Dip Reset",
+    "family": "Transition",
+    "description": "Brief energy drop to make next drop bigger.",
+    "baseScore": 58,
+    "difficulty": 2,
+    "energyFit": [
+      "reset",
+      "reset"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "phrase_boundary"
+    ],
+    "risks": [],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize to phrase boundary if available.",
+      "Apply energy dip reset gesture with wet/dry automation.",
+      "Return FX to neutral before next phrase unless marked as release FX."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "50%",
+        "target": "A.fx.wet",
+        "value": "25%"
+      },
+      {
+        "time": "75%",
+        "target": "B.gain",
+        "value": "-3dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "phrase",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "reverb_wash_reset",
+    "name": "Reverb Wash Reset",
+    "family": "FX",
+    "description": "Use a short reverb bloom to mask a key or tempo reset before revealing the next track.",
+    "baseScore": 52,
+    "difficulty": 3,
+    "energyFit": [
+      "reset",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [],
+    "goodWhen": [
+      "key_tension",
+      "sync_unreliable",
+      "break_or_tail"
+    ],
+    "risks": [
+      "washed_out_low_end"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Start a controlled reverb wash on the outgoing deck.",
+      "Cut outgoing low end before the wash gets dense.",
+      "Fade the incoming deck through the wash and release FX before the next phrase."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.fx.type",
+        "value": "REVERB"
+      },
+      {
+        "time": "15%",
+        "target": "A.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "45%",
+        "target": "B.gain",
+        "value": "-6dB to -2dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "space",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "low_kill_drop",
+    "name": "Low Kill Drop",
+    "family": "Transition",
+    "description": "Kill the outgoing low end early and let the incoming drop take bass ownership.",
+    "baseScore": 55,
+    "difficulty": 3,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "house",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "drop_entry",
+      "low_end_conflict",
+      "sync_reliable"
+    ],
+    "risks": [
+      "thin_transition_if_late"
+    ],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Quantize the entry to a phrase or drop boundary.",
+      "Kill A low immediately before B low opens.",
+      "Use a short crossfade while keeping mids controlled."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "20%",
+        "target": "B.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "55%",
+        "target": "crossfader",
+        "value": "center to B"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "bass",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "drop_swap_cut",
+    "name": "Drop Swap Cut",
+    "family": "Transition",
+    "description": "Hold the outgoing phrase, then cut directly into the incoming drop without release FX.",
+    "baseScore": 50,
+    "difficulty": 3,
+    "energyFit": [
+      "peak",
+      "peak"
+    ],
+    "styleFit": [
+      "dnb",
+      "dubstep",
+      "edm",
+      "hiphop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "drop_entry",
+      "fx_fatigue_risk"
+    ],
+    "risks": [
+      "abrupt_energy_change"
+    ],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Keep A dominant until the phrase edge.",
+      "Preload B at the drop or hook cue.",
+      "Cut the crossfader late and stop A cleanly."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "B.cue",
+        "value": "armed"
+      },
+      {
+        "time": "75%",
+        "target": "crossfader",
+        "value": "fast move to B"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "peak",
+      "cut",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "energy_dip_reset_plus",
+    "name": "Energy Dip Reset Plus",
+    "family": "Transition",
+    "description": "Create a short perceived energy dip to make an otherwise risky tempo or key move feel intentional.",
+    "baseScore": 51,
+    "difficulty": 3,
+    "energyFit": [
+      "reset",
+      "peak"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "hiphop",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short",
+      "medium"
+    ],
+    "requires": [],
+    "goodWhen": [
+      "bpm_gap",
+      "key_tension",
+      "open_format_reset"
+    ],
+    "risks": [
+      "floor_energy_loss"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Reduce outgoing low end and channel level briefly.",
+      "Hold the dip for less than one phrase.",
+      "Bring B in with restored low end after the reset."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.eq.low",
+        "value": "-6dB"
+      },
+      {
+        "time": "35%",
+        "target": "A.volume",
+        "value": "-8dB"
+      },
+      {
+        "time": "60%",
+        "target": "B.gain",
+        "value": "-4dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "reset",
+      "energy",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "percussion_bridge_plus",
+    "name": "Percussion Bridge Plus",
+    "family": "Transition",
+    "description": "Layer a percussive intro or loop over the outgoing track before a late bass handoff.",
+    "baseScore": 56,
+    "difficulty": 3,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "dnb",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary",
+      "stable beat grid"
+    ],
+    "goodWhen": [
+      "percussive_intro",
+      "low_mid_space",
+      "sync_reliable"
+    ],
+    "risks": [
+      "groove_clutter"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Start B with low killed and high percussion audible.",
+      "Keep both decks near center while groove locks.",
+      "Swap low end late and fade A by channel fader."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "B.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "35%",
+        "target": "crossfader",
+        "value": "near center"
+      },
+      {
+        "time": "65%",
+        "target": "bass_owner",
+        "value": "A to B"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "percussion",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "stutter_gate_exit",
+    "name": "Stutter Gate Exit",
+    "family": "FX",
+    "description": "Use a rhythmic gate or roll-style chop to exit a busy phrase without a long overlap.",
+    "baseScore": 50,
+    "difficulty": 4,
+    "energyFit": [
+      "peak",
+      "reset"
+    ],
+    "styleFit": [
+      "edm",
+      "hiphop",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "short"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "busy_midrange",
+      "short_transition_needed"
+    ],
+    "risks": [
+      "over_chopping"
+    ],
+    "defaultEntry": "B.downbeat_or_hook",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Arm a short beat-synced gate on A.",
+      "Reduce A low end before the final chop.",
+      "Reveal B on the next downbeat and release the gate."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.fx.type",
+        "value": "ROLL/GATE"
+      },
+      {
+        "time": "35%",
+        "target": "A.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "80%",
+        "target": "crossfader",
+        "value": "fast move to B"
+      },
+      {
+        "time": "100%",
+        "target": "A.fx.wet",
+        "value": "0%"
+      }
+    ],
+    "tags": [
+      "peak",
+      "rhythmic",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "dub_delay_bridge",
+    "name": "Dub Delay Bridge",
+    "family": "FX",
+    "description": "Throw outgoing percussion or vocal fragments into delay while the incoming groove takes over.",
+    "baseScore": 52,
+    "difficulty": 3,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "dub",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "sparse_tail",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "delay_mud"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Apply a tempo-matched delay throw to A accents.",
+      "Keep feedback moderate and remove A low end.",
+      "Fade B in under the delay tail."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "A.fx.type",
+        "value": "DELAY"
+      },
+      {
+        "time": "25%",
+        "target": "A.fx.feedback",
+        "value": "moderate"
+      },
+      {
+        "time": "50%",
+        "target": "B.gain",
+        "value": "-4dB to 0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "delay",
+      "fx"
+    ],
+    "executable": true
+  },
+  {
+    "id": "mid_carve_blend",
+    "name": "Mid Carve Blend",
+    "family": "Transition",
+    "description": "Protect vocal and lead clarity by dynamically carving the outgoing midrange during overlap.",
+    "baseScore": 57,
+    "difficulty": 3,
+    "energyFit": [
+      "smooth",
+      "smooth"
+    ],
+    "styleFit": [
+      "pop",
+      "house",
+      "hiphop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "vocal_conflict_risk",
+      "harmonic_compatible"
+    ],
+    "risks": [
+      "hollow_outgoing_track"
+    ],
+    "defaultEntry": "B.intro_or_break",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Start B with low killed and modest high end.",
+      "Duck A mids only while B vocal or lead is present.",
+      "Return or fade A before the next hook."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "B.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "30%",
+        "target": "A.eq.mid",
+        "value": "-5dB"
+      },
+      {
+        "time": "60%",
+        "target": "bass_owner",
+        "value": "A to B"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "smooth",
+      "vocal-safe",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "ambient_break_wash",
+    "name": "Ambient Break Wash",
+    "family": "Transition",
+    "description": "Blend two low-energy break sections with gentle filtering and restrained space.",
+    "baseScore": 54,
+    "difficulty": 2,
+    "energyFit": [
+      "emotional",
+      "smooth"
+    ],
+    "styleFit": [
+      "house",
+      "techno",
+      "pop",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium",
+      "long"
+    ],
+    "requires": [
+      "break_section"
+    ],
+    "goodWhen": [
+      "break_to_break",
+      "low_energy_sections"
+    ],
+    "risks": [
+      "energy_sag"
+    ],
+    "defaultEntry": "B.break_or_intro",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Choose break or intro cues on both decks.",
+      "Use gentle high-pass filtering on A and low-killed B entry.",
+      "Avoid heavy release FX unless the next section needs a reset."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "B.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "45%",
+        "target": "A.color",
+        "value": "gentle HPF"
+      },
+      {
+        "time": "70%",
+        "target": "B.eq.low",
+        "value": "0dB"
+      },
+      {
+        "time": "100%",
+        "target": "A.volume",
+        "value": "-inf"
+      }
+    ],
+    "tags": [
+      "emotional",
+      "break",
+      "transition"
+    ],
+    "executable": true
+  },
+  {
+    "id": "hook_tease_handoff",
+    "name": "Hook Tease Handoff",
+    "family": "Strategy",
+    "description": "Preview a recognizable hook briefly before committing to the full incoming track.",
+    "baseScore": 49,
+    "difficulty": 4,
+    "energyFit": [
+      "build",
+      "peak"
+    ],
+    "styleFit": [
+      "pop",
+      "hiphop",
+      "edm",
+      "open-format"
+    ],
+    "lengthFit": [
+      "medium"
+    ],
+    "requires": [
+      "hook_cue",
+      "phrase_boundary"
+    ],
+    "goodWhen": [
+      "recognizable_hook",
+      "crowd_energy_build"
+    ],
+    "risks": [
+      "spoiling_drop",
+      "vocal_conflict"
+    ],
+    "defaultEntry": "B.hook_or_drop",
+    "detectConditions": [
+      "stable beat grid",
+      "candidate downbeat available",
+      "no clipping headroom problem"
+    ],
+    "execution": [
+      "Tease B hook at low level or with low killed.",
+      "Return briefly to A if the phrase needs resolution.",
+      "Commit to B on the next phrase boundary."
+    ],
+    "guardrails": [
+      "Do not stack more than two dominant vocals.",
+      "Keep limiter headroom at least -6 dB before transition.",
+      "Prefer preview rendering before live execution."
+    ],
+    "automation": [
+      {
+        "time": "0%",
+        "target": "B.gain",
+        "value": "-10dB"
+      },
+      {
+        "time": "35%",
+        "target": "B.eq.low",
+        "value": "-inf"
+      },
+      {
+        "time": "65%",
+        "target": "crossfader",
+        "value": "center tease"
+      },
+      {
+        "time": "100%",
+        "target": "crossfader",
+        "value": "B commit"
+      }
+    ],
+    "tags": [
+      "build",
+      "hook",
+      "strategy"
+    ],
+    "executable": true
+  },
+  {
+    "id": "mid_swap",
+    "name": "Mid Swap",
+    "family": "EQ Transition",
+    "description": "Fade B in with its mid killed, swap both mid bands on a downbeat, then fade A out.",
+    "automation": ["B.fader 0→100%", "downbeat: A.mid 100→0%, B.mid 0→100%", "A.fader 100→0%"],
+    "executable": true
+  },
+  {
+    "id": "high_swap",
+    "name": "High Swap",
+    "family": "EQ Transition",
+    "description": "Introduce B without highs, exchange both high bands on a beat, then remove A.",
+    "automation": ["B.fader 0→100%", "beat: A.high 100→0%, B.high 0→100%", "A.fader 100→0%"],
+    "executable": true
+  },
+  {
+    "id": "low_initial_cut",
+    "name": "Low Initial Cut",
+    "family": "EQ Transition",
+    "description": "Run an eight-bar blend with B low killed and swap bass ownership at the midpoint.",
+    "automation": ["bars 1-4: B.fader 0→100%", "bar 5: low swap", "bars 6-8: A.fader 100→0%"],
+    "executable": true
+  },
+  {
+    "id": "high_initial_cut",
+    "name": "High Initial Cut",
+    "family": "EQ Transition",
+    "description": "Bring B in with highs near -12 dB, exchange highs at the midpoint, and fade A out.",
+    "automation": ["B.high -12dB", "B.fader 0→100%", "midpoint high exchange", "A.fader 100→0%"],
+    "executable": true
+  },
+  {
+    "id": "v_curve_fade",
+    "name": "V-Curve Fade",
+    "family": "Level Transition",
+    "description": "Cross both channel faders through a controlled 70% midpoint before completing the handoff.",
+    "automation": ["A 100→70→0%", "B 0→70→100%"],
+    "executable": true
+  },
+  {
+    "id": "constant_power_fade",
+    "name": "Constant Power Fade",
+    "family": "Level Transition",
+    "description": "Use cosine and sine channel curves over sixteen bars to keep the squared gain sum constant.",
+    "automation": ["A=cos(tπ/2)", "B=sin(tπ/2)"],
+    "executable": true
+  },
+  {
+    "id": "full_range_crossfade",
+    "name": "Full-Range Crossfade",
+    "family": "Level Transition",
+    "description": "Linearly exchange channel volume over four bars while leaving all EQ bands flat.",
+    "automation": ["A.fader 100→0%", "B.fader 0→100%", "EQ flat"],
+    "executable": true
+  },
+  {
+    "id": "quick_mix",
+    "name": "Quick Mix",
+    "family": "Cut Transition",
+    "description": "Overlay B for four bars, remove A low rapidly, and cut A before the next downbeat.",
+    "automation": ["B full entry", "A.low 100→0%", "A hard cut"],
+    "executable": true
+  },
+  {
+    "id": "ghost_drop",
+    "name": "Ghost Drop",
+    "family": "Cut Transition",
+    "description": "Create a deliberate silent bar before releasing B at full range on the next downbeat.",
+    "automation": ["A mute", "silence hold", "B full-range release"],
+    "executable": true
+  },
+  {
+    "id": "lpf_dissolve",
+    "name": "LPF Dissolve",
+    "family": "FX",
+    "description": "Sweep A through a logarithmic low-pass dissolve while fading B in.",
+    "automation": ["A.LPF 20kHz→150Hz", "B.fader 0→100%", "A cut and filter reset"],
+    "executable": true
+  },
+  {
+    "id": "reverb_tail",
+    "name": "Reverb Tail",
+    "family": "FX",
+    "description": "Kill A low, mute its dry channel, and retain a long reverb tail over B.",
+    "automation": ["reverb wet 0→60%", "A.low kill", "A dry mute", "tail 8s"],
+    "executable": true
+  },
+  {
+    "id": "beat_repeat_roll",
+    "name": "Beat Repeat Roll",
+    "family": "FX",
+    "description": "Shorten a captured beat roll from one beat to one eighth before releasing B.",
+    "automation": ["ROLL 1→1/2→1/4→1/8 beat", "A mute", "B release"],
+    "executable": true
+  },
+  {
+    "id": "double_downbeat",
+    "name": "Double Downbeat",
+    "family": "Cut Transition",
+    "description": "Repeat the final kick at half-beat length and release B on the following downbeat.",
+    "automation": ["ROLL 1/2 beat", "A mute", "B downbeat release"],
+    "executable": true
+  },
+  {
+    "id": "flanger_sweep",
+    "name": "Flanger Sweep",
+    "family": "FX",
+    "description": "Increase flanger depth and accelerate its beat-synced cycle before a clean cut to B.",
+    "automation": ["wet 0→80%", "rate 1→1/2→1/4 beat", "clean B release"],
+    "executable": true
+  },
+  {
+    "id": "noise_sweep",
+    "name": "Noise Sweep",
+    "family": "FX",
+    "description": "Generate internal white noise, sweep its high-pass filter upward, and shape a rise-and-fall envelope.",
+    "automation": ["noise 0→25→0%", "HPF 400Hz→15kHz"],
+    "executable": true
+  },
+  {
+    "id": "gate_transition",
+    "name": "Gate Transition",
+    "family": "FX",
+    "description": "Apply a quarter-beat gate and reduce duty cycle from continuous audio to short staccato slices.",
+    "automation": ["gate 1/4 beat", "duty 100→15%", "B.fader 0→100%"],
+    "executable": true
+  },
+  {
+    "id": "distortion_fade",
+    "name": "Distortion Fade",
+    "family": "FX",
+    "description": "Raise waveshaper drive with internal makeup attenuation before cutting to a clean B signal.",
+    "automation": ["drive 0→75%", "makeup -6dB", "clean B release"],
+    "executable": true
+  },
+  {
+    "id": "transformer_cut",
+    "name": "Transformer Cut",
+    "family": "FX",
+    "description": "Apply a sixteenth-beat square gate on the final beat and cut directly to B.",
+    "automation": ["gate 1/16 beat", "A mute", "B downbeat release"],
+    "executable": true
+  },
+  {
+    "id": "snare_drop",
+    "name": "Snare Drop",
+    "family": "Cut Transition",
+    "description": "Shift execution and the incoming cue by one beat so both tracks hand off on the snare.",
+    "automation": ["A beat 2 cut", "B beat 2 entry", "full-range release"],
+    "executable": true
+  },
+  {
+    "id": "break_drop",
+    "name": "Break Drop",
+    "family": "Cut Transition",
+    "description": "Use a detected break-start exit cue to cut directly into B chorus or drop.",
+    "automation": ["detected BREAK exit", "A cut", "B drop release"],
+    "executable": true
+  },
+  {
+    "id": "free_run_drop",
+    "name": "Free Run Drop",
+    "family": "Tempo Transition",
+    "description": "Disable synchronization for large non-ratio BPM changes and cut B in at original tempo.",
+    "automation": ["SYNC off", "A phrase-end cut", "B original BPM release"],
+    "executable": true
+  },
+  {
+    "id": "intro_to_outro",
+    "name": "Intro to Outro",
+    "family": "Structure Transition",
+    "description": "Start B intro at the detected A outro boundary and perform a long EQ handoff.",
+    "automation": ["A OUTRO exit", "B INTRO entry", "16-bar EQ exchange"],
+    "executable": true
+  },
+  {
+    "id": "chorus_to_chorus",
+    "name": "Chorus to Chorus",
+    "family": "Structure Transition",
+    "description": "Cut from an outgoing chorus resolution directly to the incoming chorus downbeat.",
+    "automation": ["A chorus-end cut", "B chorus CUE", "full-range release"],
+    "executable": true
+  },
+  {
+    "id": "ambient_interlude",
+    "name": "Ambient Interlude",
+    "family": "FX",
+    "description": "Bridge incompatible tracks with a four-second filtered-noise reset bed.",
+    "automation": ["A 1s fade", "filtered texture hold", "B fade/cut entry"],
+    "executable": true
+  },
+  {
+    "id": "half_double_bpm",
+    "name": "Half / Double BPM",
+    "family": "Tempo Transition",
+    "description": "Recognize 1:2 tempo ratios, preserve original speed, and lock normalized beat phase.",
+    "automation": ["ratio detect", "2:1 phase lock", "long low swap"],
+    "executable": true
+  },
+  {
+    "id": "semitone_shift",
+    "name": "Semitone Shift",
+    "family": "Harmonic Transition",
+    "description": "Prepare the incoming deck with a one-semitone AudioWorklet pitch shift before blending.",
+    "automation": ["B key shift +1", "PFL preparation", "harmonic EQ blend"],
+    "executable": true
+  },
+  {
+    "id": "drum_band_swap",
+    "name": "Drum / Bass Band Swap",
+    "family": "EQ Transition",
+    "description": "Frequency-band approximation that exchanges low-end ownership without claiming stem separation.",
+    "automation": ["B low kill", "low-band exchange", "A channel fade"],
+    "executable": true
+  }
+]

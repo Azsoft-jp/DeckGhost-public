@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeckGhost ヘルプ</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/help.css">
+</head>
+<body class="help-page">
+<header class="help-topbar">
+  <a class="back-button" href="index.html" aria-label="DeckGhostへ戻る" title="DeckGhostへ戻る">←</a>
+  <img class="help-logo" src="img/deckghost-icon-96.png" alt="" width="34" height="34">
+  <div class="help-brand">DeckGhost <span>HELP</span></div>
+  <a class="open-console" href="index.html">コンソールを開く</a>
+</header>
+
+<div class="help-shell">
+  <nav class="help-nav" aria-label="ヘルプ目次">
+    <div class="help-nav-title">目次</div>
+    <a href="#quick-start">最初の5分</a>
+    <a href="#library">曲の追加と解析</a>
+    <a href="#screen">画面の見方</a>
+    <a href="#automix">AutoMIX</a>
+    <a href="#lab">Performance LAB</a>
+    <a href="#waveform">波形と拍</a>
+    <a href="#manual-mix">手動MIX</a>
+    <a href="#fx">FX</a>
+    <a href="#midi">MIDI</a>
+    <a href="#trouble">困ったとき</a>
+    <a href="#glossary">用語集</a>
+  </nav>
+
+  <main class="help-content">
+    <section class="help-intro" aria-labelledby="help-title">
+      <p class="eyebrow">BEGINNER GUIDE</p>
+      <h1 id="help-title">DeckGhostの使い方</h1>
+      <p>DeckGhostは、曲を解析して次の曲、MIX位置、技法、EQとフェーダー操作を組み立てるDJコンソールです。まずは下の手順だけでAutoMIXを試せます。</p>
+      <div class="safety-note"><strong>最初はスピーカー音量を小さめに。</strong>曲の重なりやFXで、一時的に音が大きくなる場合があります。</div>
+    </section>
+
+    <section class="help-section" id="quick-start">
+      <h2>最初の5分</h2>
+      <div class="quick-steps">
+        <article class="quick-step"><span>1</span><div><h3>曲を用意</h3><p><b>DEMOトラック生成</b>を押すか、<b>ファイルを開く</b>から2曲以上選びます。解析が終わるまで待ちます。</p></div></article>
+        <article class="quick-step"><span>2</span><div><h3>キューへ追加</h3><p><b>全曲をAUTO MIXキューへ</b>を押します。曲順を決めたい場合は、ライブラリの各曲にある<b>QUEUE</b>を順番に押します。</p></div></article>
+        <article class="quick-step"><span>3</span><div><h3>選び方をAUTOに</h3><p>Performance LABで<b>AUTO</b>を選びます。最初はTransition ComposerをOFFのままにします。</p></div></article>
+        <article class="quick-step"><span>4</span><div><h3>AutoMIX開始</h3><p>ヘッダーの<b>AUTO MIX</b>を押します。デッキが空なら、キューの先頭曲から再生を始めます。</p></div></article>
+        <article class="quick-step"><span>5</span><div><h3>プランを確認</h3><p>NEXT TRANSITION PLANと全体波形のマーカーに、次の技法とMIX区間が表示されます。</p></div></article>
+      </div>
+      <div class="callout good"><strong>迷ったらこの設定</strong><span>Performance LAB: AUTO / Composer: OFF / AUTO FX: OFF / PERF MIX: OFF</span></div>
+    </section>
+
+    <section class="help-section" id="library">
+      <h2>曲の追加と解析</h2>
+      <p>曲を追加すると、音源の読込、PCMデコード、BPM、拍、Key、セクション、ラウドネス、波形の解析を順番に行います。長尺曲や複数ファイルでは時間がかかるため、右上（スマートフォンでは右下）の進捗表示が消えるまで待ってください。</p>
+      <div class="screen-grid">
+        <div><h3>同梱サンプル</h3><p>選択欄から1曲ずつ追加します。容量とSHA-256を確認してから解析するため、壊れた音源や古いmanifestを検出できます。</p></div>
+        <div><h3>ローカルファイル</h3><p><b>ファイルを開く</b>またはライブラリへのドラッグ&ドロップで追加します。音声はブラウザ内で処理されます。</p></div>
+        <div><h3>デモトラック</h3><p><b>DEMOトラック生成</b>で5曲をブラウザ内合成します。外部音源なしでAutoMIXを確認できます。</p></div>
+        <div><h3>サーバから読込</h3><p>ローカルNode.js版の<code>tracks/</code>に置いた音源を順番に取得します。Cloudflare版には永続的なtracks領域がありません。</p></div>
+      </div>
+      <h3>PCMメモリ表示</h3>
+      <p>MP3などの圧縮音源は、再生前に大きなPCMデータへ展開されます。DeckGhostは再生中と準備中の曲を保護し、それ以外をLRU方式で解放します。ライブラリ上部の<b>PCM n曲 / n MB</b>が現在の保持量です。</p>
+      <ul class="plain-list">
+        <li><b>RAM</b>: 解析済みPCMを現在保持しており、すぐDeckへロードできます。</li>
+        <li><b>·</b>: 解析結果は残っていますがPCMは解放済みです。Deck投入時に元ファイルやURLから再デコードします。</li>
+        <li><b>UNLOAD</b>: Deckから曲を外し、使われなくなったPCMを解放可能な状態へ戻します。</li>
+      </ul>
+      <div class="callout warn"><strong>読込中は操作を待つ</strong><span>複数曲はメモリの山を作らないよう1曲ずつ処理されます。進捗表示中に同じ曲を繰り返し追加したり、Deckへ連続ロードしたりせず、完了を待ってください。</span></div>
+    </section>
+
+    <section class="help-section" id="screen">
+      <h2>画面の見方</h2>
+      <div class="screen-grid">
+        <div><h3>DECK A / B</h3><p>2台のプレイヤーです。再生、CUE、テンポ、ループ、ジョグ、拍位置の補正を行います。</p></div>
+        <div><h3>MIXER</h3><p>LOW/MID/HIGH、チャンネルフェーダー、クロスフェーダー、FX、マスター音量を扱います。</p></div>
+        <div><h3>LIBRARY / QUEUE</h3><p>解析済みの曲と、AutoMIXでこれから再生する曲順を表示します。</p></div>
+        <div><h3>BRAIN</h3><p>キーの相性、音域の衝突、現在おすすめの技法を表示します。</p></div>
+        <div><h3>PERFORMANCE LAB</h3><p>技法の選び方を変え、次のMIXプランと実行履歴を確認します。</p></div>
+        <div><h3>CUE WORKBENCH</h3><p>曲に入る位置と出る位置を確認・追加します。手動CUEは自動解析より優先されます。</p></div>
+      </div>
+      <p class="muted">スマートフォンでは縦向き・横向きとも、DECK A / MIXER / DECK Bと各分析パネルがタブ表示になります。横向きではヘッダーが2段のコンパクト表示になります。</p>
+    </section>
+
+    <section class="help-section" id="automix">
+      <h2>AutoMIXは何をする？</h2>
+      <ol class="flow-list">
+        <li><b>現在曲の後半</b>から、安全にMIXできるEXIT CUEを探します。</li>
+        <li><b>次曲の前半</b>から、イントロや入りやすいENTRY CUEを探します。</li>
+        <li>BPM、拍、キー、コード、音域、曲のセクション、直前に使った技法を比較します。</li>
+        <li>次曲をチャンネルミュートのまま先に走らせ、キックの位置を合わせます。</li>
+        <li>技法に合わせてEQ、フェーダー、FXを動かし、次曲へ主導権を渡します。</li>
+      </ol>
+      <h3>一時停止と再開</h3>
+      <p>MIX中に片方のデッキを一時停止すると、両デッキとAutoMIXの進行も止まります。再開すると、停止中に時間だけ進まず、同じMIX位置から両デッキが再開します。</p>
+      <div class="callout warn"><strong>AUTO MIXをOFFにする操作との違い</strong><span>再生ボタンの一時停止はプランを保持します。AUTO MIX自体をOFFにすると、待機中のプランは解除され、実行中の自動操作も止まります。</span></div>
+    </section>
+
+    <section class="help-section" id="lab">
+      <h2>Performance LAB</h2>
+      <p>ここは「技法の表示」ではなく、AutoMIXの選び方を変える場所です。</p>
+      <div class="mode-table-wrap">
+        <table class="mode-table">
+          <thead><tr><th>モード</th><th>選び方</th><th>向いている場面</th></tr></thead>
+          <tbody>
+            <tr><td><b>AUTO</b></td><td>スタイル加点なし。曲の解析結果だけで選択</td><td>最初に使う、ジャンル混在</td></tr>
+            <tr><td>Smooth House</td><td>長く滑らかなブレンドを優先</td><td>ハウス、落ち着いた展開</td></tr>
+            <tr><td>Festival Slam</td><td>カット、ドロップ、Echo系を優先</td><td>短く強い切り替え</td></tr>
+            <tr><td>Vocal Safe</td><td>ボーカル同士の重なりを避ける</td><td>歌もの同士</td></tr>
+            <tr><td>Bass Surgeon</td><td>LOW交換と低域整理を優先</td><td>キックとベースが強い曲</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Transition Composer</h3>
+      <p>ComposerをONにすると、LABが選んだ技法よりも、INTRO / HANDOFF / RELEASEで指定した手順を優先します。自動選択を試す間はOFFがおすすめです。</p>
+    </section>
+
+    <section class="help-section" id="waveform">
+      <h2>波形・セクション・拍</h2>
+      <p>細い全体波形は曲全体、上の拡大波形は現在位置付近を表示します。全体波形の色帯はIntro、Build、Chorus、Break、Outroなどの推定セクションです。AutoMIXが使う範囲は専用マーカーで重ねて表示されます。</p>
+      <h3>キックと拍線がずれているとき</h3>
+      <ol class="flow-list compact">
+        <li>ジョグまたは波形で、本当の小節先頭のキックへ移動します。</li>
+        <li><b>1拍目</b>を押して、その位置を現在小節の先頭拍にします。既存の小節番号は維持されます。</li>
+        <li>4小節フレーズの頭が分かる場合は、そこで<b>1小節目</b>を押してその4小節ウィンドウの起点を設定します(曲全体の起点は動きません)。</li>
+        <li>少しだけずれる場合はGRIDの1ms / 10ms / 50msボタンで調整します。</li>
+        <li>1拍ぶん違う場合は<b>-1 BEAT / +1 BEAT</b>を使います。</li>
+        <li>セクションやCUEも更新したい場合は<b>再解析</b>を押します。</li>
+      </ol>
+      <p class="muted">現場で直した拍開始位置は、次のAutoMIX計画と実行中の拍同期へ即時反映されます。</p>
+    </section>
+
+    <section class="help-section" id="manual-mix">
+      <h2>手動MIXの基本</h2>
+      <ol class="flow-list">
+        <li>次に流す曲を反対側のデッキへロードし、ヘッドホンの<b>CUE</b>で準備します。</li>
+        <li><b>SYNC</b>またはTEMPOとジョグで、両曲のキックを合わせます。</li>
+        <li>次曲の<b>LOWを下げ、HIGHも少し下げます</b>。</li>
+        <li>次曲のチャンネルフェーダーを上げ、曲を重ねます。</li>
+        <li>小節の1拍目を基準に、LOWとHIGHをゆっくり入れ替えます。</li>
+        <li>先に流していた曲のフェーダーを下げます。</li>
+      </ol>
+      <div class="callout"><strong>なぜLOWを2曲同時に出さない？</strong><span>キックとベースが重なって、音が濁ったり急に大きくなったりするのを避けるためです。</span></div>
+      <h3>再生まわり</h3>
+      <ul class="plain-list">
+        <li><b>PLAY</b>: 再生／一時停止</li>
+        <li><b>CUE</b>: 再生中はCUE位置へ戻って停止。停止中は現在位置をCUEに設定、またはCUE位置から試聴</li>
+        <li><b>SYNC</b>: 反対側のデッキへBPMを合わせる</li>
+        <li><b>KEY LOCK</b>: テンポを変えても音程を保つ</li>
+        <li><b>TAP</b>: ビートに合わせて4回以上叩く。入力が止まってからBPMを一度だけ確定</li>
+      </ul>
+    </section>
+
+    <section class="help-section" id="fx">
+      <h2>FXの使い方</h2>
+      <p>FXタイプを選び、ASSIGNでDeck A / Deck B / Masterを指定し、DEPTHとPARAMを調整してONにします。最初はDEPTHを小さくして試してください。</p>
+      <div class="screen-grid fx-guide">
+        <div><h3>ROLL</h3><p>短い音を捕まえて繰り返します。捕捉後は元の曲を消し、ループ音だけを鳴らします。</p></div>
+        <div><h3>ECHO / DELAY</h3><p>原音を切った後も反復音を残せるため、曲の出口に向いています。</p></div>
+        <div><h3>REVERB</h3><p>残響だけを残して次曲へ渡せます。LOWを減らすと濁りにくくなります。</p></div>
+        <div><h3>FILTER / LPF / HPF</h3><p>FILTERは拍同期の揺れ、LPF/HPFはDEPTHでカットオフ、PARAMでレゾナンスを調整します。原音は並列に漏らしません。</p></div>
+        <div><h3>CRUSH</h3><p>音を粗くデジタル化します。短いアクセントや、クリーンな次曲へ切り替える直前に向いています。</p></div>
+      </div>
+      <p class="muted">AUTO FXは曲中のセクション変化へ控えめにFXを入れます。PERF MIXは次曲の一部を重ねる機能で、曲そのものは切り替えません。</p>
+    </section>
+
+    <section class="help-section" id="midi">
+      <h2>MIDIコントローラー</h2>
+      <ol class="flow-list compact">
+        <li><b>MIDI有効化</b>を押し、ブラウザの許可画面を承認します。</li>
+        <li>INからコントローラー、必要ならOUTからLEDフィードバック先を選びます。</li>
+        <li>LEARNで操作項目を選び、<b>LEARN</b>を押してから実機のボタンやノブを動かします。</li>
+        <li>CLOCK OUTは外部機器へ現在BPMのMIDI Clockを送ります。</li>
+      </ol>
+      <p class="muted">PLAY/CUEをMIDIから操作しても、AutoMIXの一時停止・再開は画面操作と同じように同期します。Web MIDIを利用できないブラウザもあります。</p>
+    </section>
+
+    <section class="help-section" id="trouble">
+      <h2>困ったとき</h2>
+      <div class="faq-list">
+        <details open><summary>音が出ない</summary><p>最初に画面をクリックしてオーディオエンジンを起動します。デッキのPLAY、チャンネルフェーダー、クロスフェーダー、MASTER、出力デバイスを確認してください。</p></details>
+        <details><summary>AutoMIXが始まらない</summary><p>AUTO MIX QUEUEが空でないか確認します。解析中の曲は完了を待ち、Composerを使う場合は選択内容も確認してください。</p></details>
+        <details><summary>キックが二重に聞こえる</summary><p>拍グリッドの線が本当のキックに合っているか確認し、1拍目またはGRIDで補正します。BPMが半分／2倍なら½×・×2を使います。</p></details>
+        <details><summary>MIX位置やセクションが違う</summary><p>CUE WORKBENCHで希望位置に手動ENTRY / EXIT CUEを追加してください。手動CUEは自動解析より優先されます。</p></details>
+        <details><summary>ヘッドホンCUEが選べない</summary><p>出力先を分ける機能に対応していないブラウザがあります。同じ出力しか選べない場合は、対応ブラウザと複数出力を持つオーディオ機器を確認してください。</p></details>
+        <details><summary>スマートフォンで戻ると再生がおかしい</summary><p>省電力やバックグラウンド制限で音声が止まる場合があります。画面へ戻って一度タップし、オーディオエンジンを再開してください。</p></details>
+        <details><summary>PCMメモリが増えている</summary><p>再生中・次のMIX準備中の曲は保護されるため、通常は2〜3曲ぶん表示されます。不要なDeckをUNLOADし、解析や再デコードが終わるまで待ってください。モバイルではアイドルPCMを即時解放します。</p></details>
+        <details><summary>サンプル読込でチェックサムエラーになる</summary><p>配信されたMP3とmanifestの容量またはSHA-256が一致していません。キャッシュを更新し、開発環境では<code>npm test</code>でサンプル整合性を確認してください。</p></details>
+      </div>
+    </section>
+
+    <section class="help-section" id="glossary">
+      <h2>DJ用語集</h2>
+      <dl class="glossary-list">
+        <div><dt>BPM</dt><dd>1分間の拍数。数字が大きいほどテンポが速くなります。</dd></div>
+        <div><dt>BEAT / 拍</dt><dd>「1、2、3、4」と数える1つずつの脈です。</dd></div>
+        <div><dt>BAR / 小節</dt><dd>DeckGhostでは基本的に4拍を1小節として扱います。</dd></div>
+        <div><dt>PHRASE</dt><dd>複数小節でできた音楽のまとまり。DeckGhostの解析・表示は4小節単位を基準にします。</dd></div>
+        <div><dt>GRID</dt><dd>曲の拍へ重ねる基準線。ここがずれるとSYNCやAutoMIXもずれます。</dd></div>
+        <div><dt>CUE</dt><dd>再生を始める目印。ENTRYは入る位置、EXITは出る位置です。</dd></div>
+        <div><dt>PFL / ヘッドホンCUE</dt><dd>客席へ流す前に、次曲をヘッドホンだけで確認することです。</dd></div>
+        <div><dt>EQ</dt><dd>LOW（低音）、MID（中音）、HIGH（高音）の量を調整します。</dd></div>
+        <div><dt>FADER</dt><dd>曲の音量を上げ下げする操作部です。</dd></div>
+        <div><dt>KEY / Camelot</dt><dd>曲の調性と、その相性をDJ向けの番号で表したものです。</dd></div>
+      </dl>
+      <h3>キーボード</h3>
+      <div class="shortcut-row"><kbd>Q</kbd><span>Deck A CUE</span><kbd>W</kbd><span>Deck A PLAY</span><kbd>E</kbd><span>Deck A SYNC</span></div>
+      <div class="shortcut-row"><kbd>I</kbd><span>Deck B CUE</span><kbd>O</kbd><span>Deck B PLAY</span><kbd>P</kbd><span>Deck B SYNC</span></div>
+    </section>
+
+    <footer class="help-footer">
+      <a href="index.html">← DeckGhostコンソールへ戻る</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

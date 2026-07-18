@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DeckGhost — AI / Algorithmic DJ Performance Engine</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== ヘッダー ===== -->
+  <header id="topbar">
+    <div class="logo">
+      <img class="logo-mark" src="img/deckghost-icon-96.png" alt="" width="34" height="34">
+      <div class="logo-text">Deck<span>Ghost</span><small class="logo-sub">DJ PERFORMANCE ENGINE</small></div>
+    </div>
+    <div class="top-status">
+      <div class="status-block">
+        <div class="status-label">MASTER BPM</div>
+        <div class="status-value" id="master-bpm">---.-</div>
+      </div>
+      <div class="status-block">
+        <div class="status-label">AUTOMIX</div>
+        <div class="status-value" id="automix-status">OFF</div>
+      </div>
+      <div class="status-block" title="Limiter reduction / 継続ピーク時のSafety Gain">
+        <div class="status-label">MASTER</div>
+        <div class="status-value" id="master-safety">SAFE</div>
+      </div>
+    </div>
+    <div class="cue-monitor" id="cue-monitor" title="ヘッドホンCUE (モニタリング)">
+      <span class="cue-mon-label">CUE</span>
+      <button class="cue-mon-btn" id="cue-mst">MST</button>
+      <select id="cue-device"><option value="">OFF</option></select>
+    </div>
+    <div class="top-actions">
+      <button id="btn-rec" class="top-btn" title="マスター出力を録音">● REC</button>
+      <button id="btn-autofx" class="top-btn" title="AUTO FX: 曲の途中で最適なFXを控えめに自動挿入">AUTO FX</button>
+      <button id="btn-autoperf" class="top-btn" title="パフォーマンスMIX: ブレイクで次曲のサビを重ねる(切り替えないMIX・控えめ)">PERF MIX</button>
+      <button id="btn-automix" class="top-btn automix-btn">AUTO MIX</button>
+      <a href="help.html" class="top-btn help-btn" title="DeckGhostヘルプ" aria-label="ヘルプ">?</a>
+    </div>
+  </header>
+
+  <div id="task-progress" class="task-progress" role="progressbar" aria-live="polite"
+       aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
+    <div class="task-progress-head">
+      <span id="task-progress-label">処理を準備中…</span>
+      <span id="task-progress-percent">0%</span>
+    </div>
+    <div class="task-progress-track"><div id="task-progress-fill" class="task-progress-fill"></div></div>
+  </div>
+
+  <nav class="mobile-tabs console-tabs" data-tab-group="console" role="tablist" aria-label="デッキとミキサー">
+    <button class="mobile-tab active" type="button" role="tab" aria-selected="true" aria-controls="deck-A" data-tab-target="deck-A">DECK A</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="mixer" data-tab-target="mixer" tabindex="-1">MIXER</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="deck-B" data-tab-target="deck-B" tabindex="-1">DECK B</button>
+  </nav>
+
+  <!-- ===== メイン: デッキ / ミキサー / デッキ ===== -->
+  <main id="console">
+
+    <!-- DECK A -->
+    <section class="deck mobile-active" id="deck-A" data-deck="A" role="tabpanel">
+      <div class="deck-header">
+        <div class="deck-badge">A</div>
+        <div class="track-info">
+          <div class="track-title" id="title-A">NO TRACK LOADED</div>
+          <div class="track-sub">
+            <span class="key-chip" id="key-A">--</span>
+            <span class="bpm-chip"><span id="bpm-orig-A">---.-</span> BPM</span>
+          </div>
+        </div>
+        <div class="time-display">
+          <div class="time-elapsed" id="time-A">00:00.0</div>
+          <div class="time-remain" id="remain-A">-00:00.0</div>
+        </div>
+        <button class="eject-btn" id="eject-A" title="この曲をデッキから取り出す (UNLOAD)">⏏</button>
+      </div>
+      <canvas class="wave-zoom" id="zoom-A" height="90"></canvas>
+      <canvas class="wave-over" id="over-A" height="34"></canvas>
+      <div class="deck-body">
+        <div class="jog-col">
+          <canvas class="jog" id="jog-A" width="190" height="190"></canvas>
+          <div class="eff-bpm"><span id="bpm-eff-A">---.-</span><small>BPM</small></div>
+          <div class="grid-nudge" id="grid-nudge-A" title="ビートグリッド手動調整(長押しで連続)">
+            <button class="grid-nudge-btn coarse" data-ms="-50">⟪</button>
+            <button class="grid-nudge-btn" data-ms="-10">◀◀</button>
+            <button class="grid-nudge-btn" data-ms="-1">◀</button>
+            <span class="grid-nudge-label">GRID</span>
+            <button class="grid-nudge-btn" data-ms="1">▶</button>
+            <button class="grid-nudge-btn" data-ms="10">▶▶</button>
+            <button class="grid-nudge-btn coarse" data-ms="50">⟫</button>
+            <div class="grid-anchor-actions">
+              <button class="grid-set1-btn" id="grid-set1-A" title="現在の再生位置を1拍目(小節の頭)にする">1拍目</button>
+              <button class="grid-set1-btn grid-setbar-btn" id="grid-setbar-A" title="現在の再生位置を4小節ウィンドウの1小節目にする">1小節目</button>
+            </div>
+          </div>
+          <div class="grid-beat-edit" id="grid-beat-A">
+            <button class="grid-beat-btn" data-beats="-1" title="小節位相を1拍戻す">-1 BEAT</button>
+            <button class="grid-beat-btn" data-beats="1" title="小節位相を1拍進める">+1 BEAT</button>
+            <button class="grid-reanalyze-btn" id="grid-reanalyze-A" title="現在のBPMとグリッドで構造/CUEを再解析">再解析</button>
+          </div>
+          <div class="key-edit" id="key-edit-A" title="キー検出は不確実なため手動補正できます">
+            <button class="key-edit-btn" data-key="-1">♭</button>
+            <span class="key-edit-label" id="key-edit-label-A">--</span>
+            <button class="key-edit-btn" data-key="1">♯</button>
+            <button class="key-edit-btn" data-key="mode">A/B</button>
+          </div>
+          <div class="bpm-rescale" id="bpm-rescale-A" title="BPM検出が半分/2倍/曖昧な場合の手動補正">
+            <input type="number" class="bpm-input" id="bpm-input-A" step="0.1" min="1" title="BPMを直接入力">
+            <button class="bpm-rescale-btn" data-factor="0.5">½×</button>
+            <button class="bpm-rescale-btn" data-factor="2">×2</button>
+            <button class="tap-btn" id="tap-A" title="ビートに合わせて4回以上叩き、入力が止まるとBPMを測定・設定">TAP</button>
+          </div>
+        </div>
+        <div class="ctrl-col">
+          <div class="hotcue-grid" id="hotcues-A"></div>
+          <div class="loop-row" id="loop-A"></div>
+          <div class="transport">
+            <button class="t-btn cue" id="cue-A">CUE</button>
+            <button class="t-btn play" id="play-A">▶</button>
+            <button class="t-btn sync" id="sync-A">SYNC</button>
+          </div>
+        </div>
+        <div class="pitch-col">
+          <div class="pitch-label">TEMPO</div>
+          <input type="range" class="pitch-fader" id="pitch-A" min="-1000" max="1000" value="0" orient="vertical">
+          <button class="pitch-range-btn" id="pitch-range-A">±8%</button>
+          <button class="keylock-btn" id="keylock-A" title="キーロック: テンポを変えても音程を維持">KEY LOCK</button>
+          <div class="keyshift" id="keyshift-A" title="音程を半音単位で調整(テンポ不変)">
+            <button class="keyshift-btn" data-semi="-1">−</button>
+            <span class="keyshift-val" id="keyshift-val-A">0</span>
+            <button class="keyshift-btn" data-semi="1">＋</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIXER -->
+    <section id="mixer" role="tabpanel">
+      <div class="mixer-strips">
+        <div class="strip" id="strip-A"></div>
+        <div class="strip-center">
+          <div class="fx-panel" id="fx-panel"></div>
+          <div class="master-vu-block" title="マスター出力レベル">
+            <span class="master-vu-label">MASTER</span>
+            <canvas id="master-vu" width="14" height="110" aria-label="マスター出力レベル"></canvas>
+          </div>
+        </div>
+        <div class="strip" id="strip-B"></div>
+      </div>
+      <div class="xfader-row">
+        <span class="xf-label">A</span>
+        <input type="range" id="xfader" min="-1000" max="1000" value="0">
+        <span class="xf-label">B</span>
+      </div>
+    </section>
+
+    <!-- DECK B -->
+    <section class="deck" id="deck-B" data-deck="B" role="tabpanel">
+      <div class="deck-header">
+        <div class="deck-badge b">B</div>
+        <div class="track-info">
+          <div class="track-title" id="title-B">NO TRACK LOADED</div>
+          <div class="track-sub">
+            <span class="key-chip" id="key-B">--</span>
+            <span class="bpm-chip"><span id="bpm-orig-B">---.-</span> BPM</span>
+          </div>
+        </div>
+        <div class="time-display">
+          <div class="time-elapsed" id="time-B">00:00.0</div>
+          <div class="time-remain" id="remain-B">-00:00.0</div>
+        </div>
+        <button class="eject-btn" id="eject-B" title="この曲をデッキから取り出す (UNLOAD)">⏏</button>
+      </div>
+      <canvas class="wave-zoom" id="zoom-B" height="90"></canvas>
+      <canvas class="wave-over" id="over-B" height="34"></canvas>
+      <div class="deck-body">
+        <div class="jog-col">
+          <canvas class="jog" id="jog-B" width="190" height="190"></canvas>
+          <div class="eff-bpm"><span id="bpm-eff-B">---.-</span><small>BPM</small></div>
+          <div class="grid-nudge" id="grid-nudge-B" title="ビートグリッド手動調整(長押しで連続)">
+            <button class="grid-nudge-btn coarse" data-ms="-50">⟪</button>
+            <button class="grid-nudge-btn" data-ms="-10">◀◀</button>
+            <button class="grid-nudge-btn" data-ms="-1">◀</button>
+            <span class="grid-nudge-label">GRID</span>
+            <button class="grid-nudge-btn" data-ms="1">▶</button>
+            <button class="grid-nudge-btn" data-ms="10">▶▶</button>
+            <button class="grid-nudge-btn coarse" data-ms="50">⟫</button>
+            <div class="grid-anchor-actions">
+              <button class="grid-set1-btn" id="grid-set1-B" title="現在の再生位置を1拍目(小節の頭)にする">1拍目</button>
+              <button class="grid-set1-btn grid-setbar-btn" id="grid-setbar-B" title="現在の再生位置を4小節ウィンドウの1小節目にする">1小節目</button>
+            </div>
+          </div>
+          <div class="grid-beat-edit" id="grid-beat-B">
+            <button class="grid-beat-btn" data-beats="-1" title="小節位相を1拍戻す">-1 BEAT</button>
+            <button class="grid-beat-btn" data-beats="1" title="小節位相を1拍進める">+1 BEAT</button>
+            <button class="grid-reanalyze-btn" id="grid-reanalyze-B" title="現在のBPMとグリッドで構造/CUEを再解析">再解析</button>
+          </div>
+          <div class="key-edit" id="key-edit-B" title="キー検出は不確実なため手動補正できます">
+            <button class="key-edit-btn" data-key="-1">♭</button>
+            <span class="key-edit-label" id="key-edit-label-B">--</span>
+            <button class="key-edit-btn" data-key="1">♯</button>
+            <button class="key-edit-btn" data-key="mode">A/B</button>
+          </div>
+          <div class="bpm-rescale" id="bpm-rescale-B" title="BPM検出が半分/2倍/曖昧な場合の手動補正">
+            <input type="number" class="bpm-input" id="bpm-input-B" step="0.1" min="1" title="BPMを直接入力">
+            <button class="bpm-rescale-btn" data-factor="0.5">½×</button>
+            <button class="bpm-rescale-btn" data-factor="2">×2</button>
+            <button class="tap-btn" id="tap-B" title="ビートに合わせて4回以上叩き、入力が止まるとBPMを測定・設定">TAP</button>
+          </div>
+        </div>
+        <div class="ctrl-col">
+          <div class="hotcue-grid" id="hotcues-B"></div>
+          <div class="loop-row" id="loop-B"></div>
+          <div class="transport">
+            <button class="t-btn cue" id="cue-B">CUE</button>
+            <button class="t-btn play" id="play-B">▶</button>
+            <button class="t-btn sync" id="sync-B">SYNC</button>
+          </div>
+        </div>
+        <div class="pitch-col">
+          <div class="pitch-label">TEMPO</div>
+          <input type="range" class="pitch-fader" id="pitch-B" min="-1000" max="1000" value="0" orient="vertical">
+          <button class="pitch-range-btn" id="pitch-range-B">±8%</button>
+          <button class="keylock-btn" id="keylock-B" title="キーロック: テンポを変えても音程を維持">KEY LOCK</button>
+          <div class="keyshift" id="keyshift-B" title="音程を半音単位で調整(テンポ不変)">
+            <button class="keyshift-btn" data-semi="-1">−</button>
+            <span class="keyshift-val" id="keyshift-val-B">0</span>
+            <button class="keyshift-btn" data-semi="1">＋</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== ライブラリ / プレイリスト ===== -->
+  <section id="browser">
+    <div class="browser-toolbar">
+      <div class="browser-title">LIBRARY</div>
+      <button id="btn-demo" class="lib-btn accent">DEMOトラック生成</button>
+      <button id="btn-open" class="lib-btn">ファイルを開く…</button>
+      <input type="file" id="file-input" accept="audio/*" multiple hidden>
+      <select id="sample-select" class="sample-select" aria-label="デプロイ済みサンプル曲">
+        <option value="">サンプル曲を選択…</option>
+      </select>
+      <button id="btn-sample-all" class="lib-btn" title="サンプル曲をすべてライブラリへ追加">サンプル全曲追加</button>
+      <button id="btn-server" class="lib-btn">サーバから読込</button>
+      <button id="btn-queue-all" class="lib-btn">全曲をAUTO MIXキューへ</button>
+      <button id="btn-grid-export" class="lib-btn" title="SHA256と拍開始タイミングをJSONで書き出し">グリッド書き出し</button>
+      <button id="btn-grid-import" class="lib-btn" title="グリッドJSONを読み込んで復元">グリッド読込</button>
+      <input type="file" id="grid-import-input" accept="application/json,.json" hidden>
+      <span id="memory-status" class="memory-status" aria-live="polite">PCM 0曲 / 0 MB</span>
+      <div class="drop-hint">音声ファイルをここにドロップ</div>
+    </div>
+    <div class="browser-panes">
+      <div class="track-table-wrap">
+        <table id="track-table">
+          <thead>
+            <tr><th></th><th>TITLE</th><th>BPM</th><th>KEY</th><th>TIME</th><th>LUFS*</th><th>ENERGY</th><th></th></tr>
+          </thead>
+          <tbody id="track-tbody"></tbody>
+        </table>
+      </div>
+      <div class="queue-pane">
+        <div class="queue-title">AUTO MIX QUEUE <span id="queue-count">0</span></div>
+        <ol id="queue-list"></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DeckGhost Brain / Performance Lab / Cue Workbench / Mix Critic ===== -->
+  <nav class="mobile-tabs panel-tabs" data-tab-group="panels" role="tablist" aria-label="分析と設定">
+    <button class="mobile-tab active" type="button" role="tab" aria-selected="true" aria-controls="brain-panel" data-tab-target="brain-panel">BRAIN</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="perf-lab" data-tab-target="perf-lab" tabindex="-1">LAB</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="cue-workbench" data-tab-target="cue-workbench" tabindex="-1">CUE</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="composer-panel" data-tab-target="composer-panel" tabindex="-1">COMPOSE</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="midi-panel" data-tab-target="midi-panel" tabindex="-1">MIDI</button>
+    <button class="mobile-tab" type="button" role="tab" aria-selected="false" aria-controls="critic-panel" data-tab-target="critic-panel" tabindex="-1">CRITIC</button>
+  </nav>
+  <section id="ghost-panels">
+
+    <div class="ghost-panel mobile-active" id="brain-panel" role="tabpanel">
+      <div class="ghost-title">BRAIN</div>
+      <div class="brain-grid">
+        <div class="brain-cell"><div class="brain-label">DECK A KEY</div><div class="brain-value" id="brain-key-A">--</div></div>
+        <div class="brain-cell"><div class="brain-label">DECK B KEY</div><div class="brain-value" id="brain-key-B">--</div></div>
+        <div class="brain-cell"><div class="brain-label">SPECTRAL A</div><div class="brain-value small" id="brain-spec-A">--</div></div>
+        <div class="brain-cell"><div class="brain-label">SPECTRAL B</div><div class="brain-value small" id="brain-spec-B">--</div></div>
+        <div class="brain-cell wide"><div class="brain-label">HARMONIC COMPATIBILITY</div><div class="brain-value" id="brain-harmonic">--</div></div>
+        <div class="brain-cell wide"><div class="brain-label">SPECTRAL CONFLICT</div><div class="brain-value" id="brain-conflict">--</div></div>
+        <div class="brain-cell wide"><div class="brain-label">RECOMMENDED TECHNIQUE</div><div class="brain-value accent" id="brain-technique">--</div></div>
+      </div>
+    </div>
+
+    <div class="ghost-panel" id="perf-lab" role="tabpanel">
+      <div class="ghost-title">PERFORMANCE LAB</div>
+      <div class="preset-row" id="preset-row"></div>
+      <div class="preset-help" id="preset-help">曲の解析結果だけで技法を選び、技法本来の長さでMIXします</div>
+      <div class="plan-box">
+        <div class="plan-head">NEXT TRANSITION PLAN <span id="plan-state" class="plan-state">-</span></div>
+        <div id="plan-detail" class="plan-detail">プランはまだありません (AUTO MIX ONで生成)</div>
+        <ol id="plan-timeline" class="plan-timeline"></ol>
+      </div>
+      <div class="history-box">
+        <div class="plan-head">HISTORY <span id="history-count">0</span></div>
+        <ul id="history-list"></ul>
+      </div>
+    </div>
+
+    <div class="ghost-panel" id="cue-workbench" role="tabpanel">
+      <div class="ghost-title">CUE WORKBENCH</div>
+      <div class="wb-decks">
+        <div class="wb-deck">
+          <div class="wb-head">DECK A
+            <select id="wb-role-A" class="wb-role">
+              <option value="entry">entry</option><option value="blend">blend</option>
+              <option value="safe">safe</option><option value="exit">exit</option>
+              <option value="drop">drop</option><option value="custom">custom</option>
+            </select>
+            <button class="lib-btn" id="wb-add-A">+ CUE</button>
+          </div>
+          <div class="wb-list" id="wb-list-A"></div>
+        </div>
+        <div class="wb-deck">
+          <div class="wb-head">DECK B
+            <select id="wb-role-B" class="wb-role">
+              <option value="entry">entry</option><option value="blend">blend</option>
+              <option value="safe">safe</option><option value="exit">exit</option>
+              <option value="drop">drop</option><option value="custom">custom</option>
+            </select>
+            <button class="lib-btn" id="wb-add-B">+ CUE</button>
+          </div>
+          <div class="wb-list" id="wb-list-B"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ghost-panel" id="composer-panel" role="tabpanel">
+      <div class="ghost-title">TRANSITION COMPOSER</div>
+      <div class="composer-grid">
+        <label class="midi-field wide">PRESET<select id="composer-preset"><option value="">CUSTOM</option></select></label>
+        <label class="midi-field">INTRO<select id="composer-intro"><option value="eq_blend">EQ Blend</option><option value="low_kill">Low Kill</option><option value="percussion">Percussion In</option></select></label>
+        <label class="midi-field">HANDOFF<select id="composer-handoff"><option value="bass_swap">Bass Swap</option><option value="filter_sweep">Filter Sweep</option><option value="energy_dip">Energy Dip</option></select></label>
+        <label class="midi-field">RELEASE<select id="composer-release"><option value="fader">Fader Out</option><option value="echo">Echo Out</option><option value="reverb">Reverb Wash</option><option value="delay">Delay Throw</option><option value="cut">Drop Cut</option></select></label>
+        <label class="midi-field">LENGTH<select id="composer-bars"><option value="4">4 bars</option><option value="8">8 bars</option><option value="16">16 bars</option><option value="32">32 bars</option></select></label>
+        <button class="lib-btn composer-toggle" id="btn-composer-enable">COMPOSER OFF</button>
+      </div>
+      <div class="midi-hint" id="composer-state">16 bars · EQ → Bass Swap → Echo</div>
+    </div>
+
+    <div class="ghost-panel" id="midi-panel" role="tabpanel">
+      <div class="ghost-title">MIDI</div>
+      <div class="midi-grid">
+        <button class="lib-btn accent" id="btn-midi-enable">MIDI有効化</button>
+        <label class="midi-field">IN<select id="midi-input"><option value="">未接続</option></select></label>
+        <label class="midi-field">OUT<select id="midi-output"><option value="">未接続</option></select></label>
+        <button class="lib-btn" id="btn-midi-clock">CLOCK OUT</button>
+        <label class="midi-field wide">LEARN<select id="midi-learn-action"></select></label>
+        <button class="lib-btn" id="btn-midi-learn">LEARN</button>
+        <button class="lib-btn" id="btn-midi-clear">RESET</button>
+      </div>
+      <div class="midi-hint" id="midi-status">Web MIDI対応ブラウザでMIDI有効化を押してください。</div>
+    </div>
+
+    <div class="ghost-panel" id="critic-panel" role="tabpanel">
+      <div class="ghost-title">MIX CRITIC</div>
+      <div class="critic-actions">
+        <button class="lib-btn accent" id="btn-critic">レポート生成</button>
+        <button class="lib-btn" id="btn-export">プロジェクト書き出し</button>
+        <button class="lib-btn" id="btn-session-rec">SESSION REC</button>
+        <button class="lib-btn" id="btn-session-replay">REPLAY</button>
+        <button class="lib-btn" id="btn-session-export">SESSION JSON</button>
+      </div>
+      <div class="session-state" id="session-state">未記録</div>
+      <div id="critic-report" class="critic-report">AUTO MIX実行後にレポートを生成できます。<br>Criticは正解判定器ではなく、リスクと改善案を提示します。</div>
+    </div>
+
+  </section>
+
+  <footer id="statusbar"><span id="status-msg">クリックでオーディオエンジンを起動します</span></footer>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

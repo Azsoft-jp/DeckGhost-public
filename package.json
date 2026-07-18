@@ -1,0 +1,23 @@
+{
+  "name": "deckghost",
+  "version": "1.0.0",
+  "description": "DeckGhost - AI / Algorithmic DJ Performance Engine (Pioneer DJ style UI, auto-mixing brain)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node scripts/public-smoke-test.mjs",
+    "cf:dev": "wrangler dev",
+    "cf:deploy": "wrangler deploy"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

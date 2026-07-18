@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "complete": true,
+  "batch": 2,
+  "normalization": {
+    "integratedLufs": -14,
+    "truePeakDbtpMax": -1
+  },
+  "tracks": [
+    {
+      "order": 1,
+      "title": "プ・プ・プチ中毒！",
+      "url": "/samples/01-puchi-chudoku.mp3",
+      "duration": 250.63,
+      "bytes": 5659369,
+      "sha256": "d016c4bdfa9f6e7276eb99e026b73cc0db45c891ca317ff1641523154f07399a"
+    },
+    {
+      "order": 2,
+      "title": "ブラインド・テラリウム",
+      "url": "/samples/02-blind-terrarium.mp3",
+      "duration": 327.07,
+      "bytes": 7373334,
+      "sha256": "aecb7cdbe634d2209211d7b6c5260851e979ad5898881427e7ac4d174f4b0888"
+    },
+    {
+      "order": 3,
+      "title": "love calendar",
+      "url": "/samples/03-love-calendar.mp3",
+      "duration": 228.6,
+      "bytes": 4985905,
+      "sha256": "74906fc39e3aa990b9a69a60deebce71a53dc56c1279c0a13044fb6ea7b965e9"
+    },
+    {
+      "order": 4,
+      "title": "ピコピコ★モールス信号！～脳内直接トン・ツー・トン～",
+      "url": "/samples/04-pikopiko-morse.mp3",
+      "duration": 195.43,
+      "bytes": 4356505,
+      "sha256": "764ad9a16bf5aac32f822d97e65b6496646bf0614115b7a68ed2cd078dca80ea"
+    },
+    {
+      "order": 5,
+      "title": "断罪！ワガママ・ディスコ",
+      "url": "/samples/05-danzai-wagamama-disco.mp3",
+      "duration": 253.75,
+      "bytes": 5960881,
+      "sha256": "78a0702c216ea57ab3f3adebbce81cd4b978ceb3916970f75da4e4a409d65fe4"
+    },
+    {
+      "order": 6,
+      "title": "境界線のブーケ",
+      "url": "/samples/06-kyokaisen-no-bouquet.mp3",
+      "duration": 241.92,
+      "bytes": 5477733,
+      "sha256": "778c60ce70cad48489f69897131e226365126a3cc1f68c91d5bcd4eb950f6530"
+    },
+    {
+      "order": 7,
+      "title": "はわわっ！lpicコマンドぱにっく",
+      "url": "/samples/07-hawawa-lpic-command-panic.mp3",
+      "duration": 281.59,
+      "bytes": 6352537,
+      "sha256": "2011c2392495cbe0f5f584ceebbf1d48c681ad7829cd1f542e5fcabf2e01a7fc"
+    },
+    {
+      "order": 8,
+      "title": "amber",
+      "url": "/samples/08-amber.mp3",
+      "duration": 242.23,
+      "bytes": 5471877,
+      "sha256": "25ddfbf669fe8ec9265c66564d3213a1504614b9a5a74bc534b1d9cd5a0d5056"
+    },
+    {
+      "order": 9,
+      "title": "タックス・カジノへようこそ",
+      "url": "/samples/09-tax-casino.mp3",
+      "duration": 262.44,
+      "bytes": 5772822,
+      "sha256": "d30d03131d10d1c0d744c44bc4137a7ff4acd24647ae4d8f1f8900cbc6793e97"
+    },
+    {
+      "order": 10,
+      "title": "ガラスの楽園",
+      "url": "/samples/10-glass-paradise.mp3",
+      "duration": 241.92,
+      "bytes": 5487769,
+      "sha256": "f36bfd5c5d97cd63f0fed677612170cb79dbc27b4753de03914a1d96cfb41655"
+    },
+    {
+      "order": 11,
+      "title": "GHOST IN THE DECK",
+      "url": "/samples/11-ghost-in-the-deck.mp3",
+      "duration": 239.64,
+      "bytes": 5557849,
+      "sha256": "0d9678e1b4d123665f6cfe04db9484084f3c337a70159b5cd14fca9991439d15"
+    },
+    {
+      "order": 12,
+      "title": "本命チョコレート宣言！",
+      "url": "/samples/12-honmei-chocolate-sengen.mp3",
+      "duration": 171.68,
+      "bytes": 3823446,
+      "sha256": "2b818367945aadf372f7c5310217d016c4aefce3892e9d76761d0d8b879024e7"
+    },
+    {
+      "order": 13,
+      "title": "甘美性中毒",
+      "url": "/samples/13-kanbisei-chudoku.mp3",
+      "duration": 154.92,
+      "bytes": 3680157,
+      "sha256": "dcf1a00c73a85e1ce0410c66671050c0224e59cc5661786de8d448e2ee08118e"
+    },
+    {
+      "order": 14,
+      "title": "liquidate-the-night",
+      "url": "/samples/14-liquidate-the-night.mp3",
+      "duration": 200,
+      "bytes": 4669758,
+      "sha256": "eed6912d46b2a3c3c1e74856f9c220d695f2723b4ff3e2b069a5ee158221ed61"
+    },
+    {
+      "order": 15,
+      "title": "ガチャ・オブ・ザ・デッド",
+      "url": "/samples/15-gacha-of-the-dead.mp3",
+      "duration": 247.08,
+      "bytes": 5435425,
+      "sha256": "7576be1993f464de9ad93a26e9ba488e8a258b7fabec4ce1aa7194223a89fbcf"
+    },
+    {
+      "order": 16,
+      "title": "refocus",
+      "url": "/samples/16-refocus.mp3",
+      "duration": 266.52,
+      "bytes": 6044229,
+      "sha256": "2a121c4b23a334af652070d2bce9df33dfcd82ff532837c97df89ea9adfc4227"
+    },
+    {
+      "order": 17,
+      "title": "CHRONO BREAKER",
+      "url": "/samples/17-chrono-breaker.mp3",
+      "duration": 309.84,
+      "bytes": 7151301,
+      "sha256": "b1299c860d96b13f86af52a2a370c21966daa6452ce4b1cb4049ed71fc362045"
+    },
+    {
+      "order": 18,
+      "title": "mind-matrix",
+      "url": "/samples/18-mind-matrix.mp3",
+      "duration": 424.96,
+      "bytes": 9636861,
+      "sha256": "bc427057abf60e99753780accd0d8c907f20e419fbf739d68e451969c437cf61"
+    },
+    {
+      "order": 19,
+      "title": "zero-gravity",
+      "url": "/samples/19-zero-gravity.mp3",
+      "duration": 424.96,
+      "bytes": 10781613,
+      "sha256": "53ccea5f0eb9fe3178da6aa2970dbcbcfc26b6df40f6f332b3516c19bf0282dd"
+    },
+    {
+      "order": 20,
+      "title": "glitch-protocol",
+      "url": "/samples/20-glitch-protocol.mp3",
+      "duration": 425.56,
+      "bytes": 10407309,
+      "sha256": "e87139cbe743455c9edda7d554c407815c8e501a9a3dcd1ac66ca4b205e9b103"
+    },
+    {
+      "order": 21,
+      "title": "mortis-systema-nex!",
+      "url": "/samples/21-mortis-systema-nex.mp3",
+      "duration": 479.4,
+      "bytes": 11274318,
+      "sha256": "2467658781f14c9ad846e59221b34c64058d4ee8f8ee925b3d91464ce001598f"
+    },
+    {
+      "order": 22,
+      "title": "pumpkin panic!",
+      "url": "/samples/22-pumpkin-panic.mp3",
+      "duration": 256.94,
+      "bytes": 5769654,
+      "sha256": "5a6650587f26f06bed72b26fa3a114ab4a7c70080ebb6e5b075fc425b495280d"
+    },
+    {
+      "order": 23,
+      "title": "ダミーキャスト",
+      "url": "/samples/23-dummy-cast.mp3",
+      "duration": 196.7,
+      "bytes": 4503981,
+      "sha256": "7b0231d6c27a28e921136eb9b4025927c7b34e9d6306394df968edaaab54c8d0"
+    },
+    {
+      "order": 24,
+      "title": "サーバー障害のうた",
+      "url": "/samples/24-server-shogai-no-uta.mp3",
+      "duration": 244.22,
+      "bytes": 5349741,
+      "sha256": "cf646a78e27eee370a978fe18338c8233ad51ce2a68f042e0a830c1af0a28489"
+    },
+    {
+      "order": 25,
+      "title": "silent sentinel",
+      "url": "/samples/25-silent-sentinel.mp3",
+      "duration": 304.22,
+      "bytes": 6633165,
+      "sha256": "4cdfb5dc466d95bc64ae3008d8a22ae8e99ec941ff7cc3c93119915edf49656d"
+    }
+  ]
+}

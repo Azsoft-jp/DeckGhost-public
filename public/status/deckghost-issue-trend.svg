@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="270" viewBox="0 0 540 270">
+  <defs>
+    <linearGradient id="trendBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="540" height="270" rx="10" fill="url(#trendBg)" stroke="#30363d" stroke-width="1"/>
+  <text x="16" y="20" fill="#58a6ff" font-size="12" font-weight="bold" font-family="monospace">Issue Status Trend</text>
+  <rect x="48" y="34" width="8" height="8" fill="#f85149" rx="1.5" opacity="0.85"/><line x1="47" y1="38" x2="57" y2="38" stroke="#f85149" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.9"/><text x="61" y="42" fill="#8b949e" font-size="9" font-family="monospace">Open(未着手)</text><rect x="166" y="34" width="8" height="8" fill="#e3b341" rx="1.5" opacity="0.85"/><line x1="165" y1="38" x2="175" y2="38" stroke="#e3b341" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.9"/><text x="179" y="42" fill="#8b949e" font-size="9" font-family="monospace">Open(着手中)</text><rect x="284" y="34" width="8" height="8" fill="#3fb950" rx="1.5" opacity="0.85"/><line x1="283" y1="38" x2="293" y2="38" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.9"/><text x="297" y="42" fill="#8b949e" font-size="9" font-family="monospace">Closed</text><line x1="401" y1="38" x2="411" y2="38" stroke="#58a6ff" stroke-width="2" stroke-dasharray="4 2"/><circle cx="406" cy="38" r="2.5" fill="#58a6ff"/><text x="415" y="42" fill="#8b949e" font-size="9" font-family="monospace">Total</text>
+  <line x1="46" y1="62" x2="46" y2="226" stroke="#30363d" stroke-width="1"/>
+  <line x1="46" y1="226" x2="498" y2="226" stroke="#30363d" stroke-width="1"/>
+
+    <line x1="46" y1="226.0" x2="498" y2="226.0" stroke="#21262d" stroke-width="0.8"/>
+    <text x="40" y="230.0" fill="#484f58" font-size="9" font-family="monospace" text-anchor="end">0</text>
+    <line x1="46" y1="185.0" x2="498" y2="185.0" stroke="#21262d" stroke-width="0.8"/>
+    <text x="40" y="189.0" fill="#484f58" font-size="9" font-family="monospace" text-anchor="end">1</text>
+    <line x1="46" y1="144.0" x2="498" y2="144.0" stroke="#21262d" stroke-width="0.8"/>
+    <text x="40" y="148.0" fill="#484f58" font-size="9" font-family="monospace" text-anchor="end">2</text>
+    <line x1="46" y1="103.0" x2="498" y2="103.0" stroke="#21262d" stroke-width="0.8"/>
+    <text x="40" y="107.0" fill="#484f58" font-size="9" font-family="monospace" text-anchor="end">3</text>
+    <line x1="46" y1="62.0" x2="498" y2="62.0" stroke="#21262d" stroke-width="0.8"/>
+    <text x="40" y="66.0" fill="#484f58" font-size="9" font-family="monospace" text-anchor="end">4</text>
+  <text x="46.0" y="240" fill="#484f58" font-size="8.5" font-family="monospace" text-anchor="middle">07-17</text><text x="498.0" y="240" fill="#484f58" font-size="8.5" font-family="monospace" text-anchor="middle">07-18</text>
+  <rect x="35.0" y="226.0" width="22.0" height="0.0" fill="#3fb950" opacity="0.85" rx="1.5"/><rect x="35.0" y="226.0" width="22.0" height="0.0" fill="#e3b341" opacity="0.85" rx="1.5"/><rect x="35.0" y="226.0" width="22.0" height="0.0" fill="#f85149" opacity="0.85" rx="1.5"/><rect x="487.0" y="226.0" width="22.0" height="0.0" fill="#3fb950" opacity="0.85" rx="1.5"/><rect x="487.0" y="226.0" width="22.0" height="0.0" fill="#e3b341" opacity="0.85" rx="1.5"/><rect x="487.0" y="226.0" width="22.0" height="0.0" fill="#f85149" opacity="0.85" rx="1.5"/>
+  <polyline points="46.0,226.0 498.0,226.0" fill="none" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="3 2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/><circle cx="46.0" cy="226.0" r="2.5" fill="#3fb950" stroke="#0d1117" stroke-width="1"/><circle cx="498.0" cy="226.0" r="2.5" fill="#3fb950" stroke="#0d1117" stroke-width="1"/><polyline points="46.0,226.0 498.0,226.0" fill="none" stroke="#e3b341" stroke-width="1.5" stroke-dasharray="3 2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/><circle cx="46.0" cy="226.0" r="2.5" fill="#e3b341" stroke="#0d1117" stroke-width="1"/><circle cx="498.0" cy="226.0" r="2.5" fill="#e3b341" stroke="#0d1117" stroke-width="1"/><polyline points="46.0,226.0 498.0,226.0" fill="none" stroke="#f85149" stroke-width="1.5" stroke-dasharray="3 2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/><circle cx="46.0" cy="226.0" r="2.5" fill="#f85149" stroke="#0d1117" stroke-width="1"/><circle cx="498.0" cy="226.0" r="2.5" fill="#f85149" stroke="#0d1117" stroke-width="1"/>
+  <polyline points="46.0,226.0 498.0,226.0" fill="none" stroke="#58a6ff" stroke-width="2" stroke-dasharray="5 3" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="46.0" cy="226.0" r="3" fill="#58a6ff" stroke="#0d1117" stroke-width="1.2"/><circle cx="498.0" cy="226.0" r="3" fill="#58a6ff" stroke="#0d1117" stroke-width="1.2"/>
+  <text x="504" y="229.5" fill="#3fb950" font-size="9.5" font-family="monospace" font-weight="bold">0</text><text x="504" y="229.5" fill="#e3b341" font-size="9.5" font-family="monospace" font-weight="bold">0</text><text x="504" y="229.5" fill="#f85149" font-size="9.5" font-family="monospace" font-weight="bold">0</text><text x="504" y="218.5" fill="#58a6ff" font-size="9.5" font-family="monospace" font-weight="bold">0</text>
+  <text x="524" y="266" fill="#21262d" font-size="8" font-family="monospace" text-anchor="end">gen-metrics.mjs</text>
+</svg>

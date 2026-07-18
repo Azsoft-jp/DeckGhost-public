@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="684" viewBox="0 0 480 684">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="480" height="640" rx="10" fill="url(#bg)" stroke="#30363d" stroke-width="1"/>
+
+  <!-- header -->
+  <text x="16" y="32" fill="#58a6ff" font-size="15" font-weight="bold" font-family="monospace">DeckGhost</text>
+  <text x="16" y="52" fill="#8b949e" font-size="10" font-family="sans-serif">An AI-powered DJ performance engine that understands music, </text>
+  <line x1="16" y1="62" x2="464" y2="62" stroke="#21262d" stroke-width="1"/>
+
+  <!-- stats row -->
+  <text x="16"  y="80" fill="#8b949e" font-size="10" font-family="monospace">&#11088; Stars</text>
+  <text x="16"  y="96" fill="#e6edf3" font-size="18" font-weight="bold" font-family="monospace">1</text>
+  <text x="95" y="80" fill="#8b949e" font-size="10" font-family="monospace">&#127860; Forks</text>
+  <text x="95" y="96" fill="#e6edf3" font-size="18" font-weight="bold" font-family="monospace">0</text>
+  <text x="170" y="80" fill="#8b949e" font-size="10" font-family="monospace">&#128065; Watchers</text>
+  <text x="170" y="96" fill="#e6edf3" font-size="18" font-weight="bold" font-family="monospace">1</text>
+  <text x="245" y="80" fill="#8b949e" font-size="10" font-family="monospace">Issues(Total)</text>
+  <text x="245" y="96" fill="#e6edf3" font-size="18" font-weight="bold" font-family="monospace">0</text>
+  <text x="325" y="80" fill="#8b949e" font-size="10" font-family="monospace">Issues(Open)</text>
+  <text x="325" y="96" fill="#e6edf3" font-size="18" font-weight="bold" font-family="monospace">0</text>
+  <text x="405" y="80" fill="#8b949e" font-size="10" font-family="monospace">&#128230; Size</text>
+  <text x="405" y="96" fill="#e6edf3" font-size="14" font-weight="bold" font-family="monospace">282.5MB</text><text x="468.5" y="95" fill="#3fb950" font-size="9" font-family="monospace" font-weight="bold">+0.1MB</text>
+  <line x1="16" y1="110" x2="464" y2="110" stroke="#21262d" stroke-width="1"/>
+
+
+  <!-- repository activity -->
+  <text x="16" y="124" fill="#8b949e" font-size="10" font-family="monospace">Total Commits</text>
+  <text x="16" y="145" fill="#e6edf3" font-size="17" font-weight="bold" font-family="monospace">◽◽◽</text>
+  <text x="112" y="136" fill="#3fb950" font-size="9" font-family="monospace" font-weight="bold">◽d:+◽◽</text>
+  <text x="112" y="148" fill="#3fb950" font-size="9" font-family="monospace" font-weight="bold">◽d:+◽◽◽</text>
+  <text x="245" y="124" fill="#8b949e" font-size="10" font-family="monospace">Total Code Rows</text>
+  <text x="245" y="145" fill="#e6edf3" font-size="17" font-weight="bold" font-family="monospace">15,012</text>
+  <text x="362" y="136" fill="#3fb950" font-size="9" font-family="monospace" font-weight="bold">1d:+4,695</text>
+  <text x="362" y="148" fill="#3fb950" font-size="9" font-family="monospace" font-weight="bold">7d:+11,040</text>
+  <line x1="16" y1="154" x2="464" y2="154" stroke="#21262d" stroke-width="1"/>
+  <g transform="translate(0 44)">
+  <!-- meta -->
+  <text x="16"  y="130" fill="#8b949e" font-size="10" font-family="monospace">Language</text>
+  <text x="16"  y="146" fill="#3178C6" font-size="12" font-family="monospace">JavaScript</text>
+  <text x="160" y="130" fill="#8b949e" font-size="10" font-family="monospace">Updated</text>
+  <text x="160" y="146" fill="#e6edf3" font-size="12" font-family="monospace">2026/07/18</text>
+  <text x="300" y="130" fill="#8b949e" font-size="10" font-family="monospace">License</text>
+  <text x="300" y="146" fill="#e6edf3" font-size="12" font-family="monospace">MIT</text>
+  <line x1="16" y1="158" x2="464" y2="158" stroke="#21262d" stroke-width="1"/>
+
+
+  <!-- issues -->
+  <text x="16" y="170" fill="#8b949e" font-size="10" font-family="monospace">Issue 状況</text>
+  <text x="10" y="188" fill="#f78166" font-size="11" font-family="monospace">Open (未着手)</text>
+  <rect x="150" y="178" width="210" height="10" rx="2" fill="#21262d"/>
+  <rect x="150" y="178" width="0" height="10" rx="2" fill="#f78166" opacity="0.85"/>
+  <text x="468" y="188" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">0 (0%)</text>
+  <text x="10" y="210" fill="#58a6ff" font-size="11" font-family="monospace">Open (着手中)</text>
+  <rect x="150" y="200" width="210" height="10" rx="2" fill="#21262d"/>
+  <rect x="150" y="200" width="0" height="10" rx="2" fill="#58a6ff" opacity="0.85"/>
+  <text x="468" y="210" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">0 (0%)</text>
+  <text x="10" y="232" fill="#3fb950" font-size="11" font-family="monospace">Closed</text>
+  <rect x="150" y="222" width="210" height="10" rx="2" fill="#21262d"/>
+  <rect x="150" y="222" width="0" height="10" rx="2" fill="#3fb950" opacity="0.85"/>
+  <text x="468" y="232" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">0 (0%)</text>
+  <line x1="16" y1="244" x2="464" y2="244" stroke="#21262d" stroke-width="1"/>
+
+  <!-- priority -->
+  <text x="16" y="256" fill="#8b949e" font-size="10" font-family="monospace">優先度別進捗 (Realtime Closed / Total)</text>
+
+    <text x="10" y="274" fill="#c9d1d9" font-size="11" font-family="monospace">P0</text>
+    <rect x="150" y="264" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="264" width="0" height="10" rx="2" fill="#ff7b72" opacity="0.85"/>
+    <text x="468" y="274" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">0/0</text>
+    <text x="10" y="296" fill="#c9d1d9" font-size="11" font-family="monospace">P1</text>
+    <rect x="150" y="286" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="286" width="210" height="10" rx="2" fill="#f0883e" opacity="0.85"/>
+    <text x="468" y="296" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">1/1 (100%)</text>
+    <text x="10" y="318" fill="#c9d1d9" font-size="11" font-family="monospace">P2</text>
+    <rect x="150" y="308" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="308" width="210" height="10" rx="2" fill="#e3b341" opacity="0.85"/>
+    <text x="468" y="318" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">63/63 (100%)</text>
+    <text x="10" y="340" fill="#c9d1d9" font-size="11" font-family="monospace">P3</text>
+    <rect x="150" y="330" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="330" width="210" height="10" rx="2" fill="#3fb950" opacity="0.85"/>
+    <text x="468" y="340" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">13/13 (100%)</text>
+  <line x1="16" y1="364" x2="464" y2="364" stroke="#21262d" stroke-width="1"/>
+
+  <!-- area -->
+  <text x="16" y="376" fill="#8b949e" font-size="10" font-family="monospace">エリア別進捗 (Realtime Closed / Total)</text>
+
+    <text x="10" y="394" fill="#c9d1d9" font-size="11" font-family="monospace">area:dg</text>
+    <rect x="150" y="384" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="384" width="210" height="10" rx="2" fill="#58a6ff" opacity="0.85"/>
+    <text x="468" y="394" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">31/31 (100%)</text>
+    <text x="10" y="416" fill="#c9d1d9" font-size="11" font-family="monospace">area:docs</text>
+    <rect x="150" y="406" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="406" width="210" height="10" rx="2" fill="#bc8cff" opacity="0.85"/>
+    <text x="468" y="416" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">6/6 (100%)</text>
+    <text x="10" y="438" fill="#c9d1d9" font-size="11" font-family="monospace">area:test</text>
+    <rect x="150" y="428" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="428" width="0" height="10" rx="2" fill="#79c0ff" opacity="0.85"/>
+    <text x="468" y="438" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">0/0</text>
+    <text x="10" y="460" fill="#c9d1d9" font-size="11" font-family="monospace">area:audio</text>
+    <rect x="150" y="450" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="450" width="210" height="10" rx="2" fill="#ffa657" opacity="0.85"/>
+    <text x="468" y="460" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">34/34 (100%)</text>
+    <text x="10" y="482" fill="#c9d1d9" font-size="11" font-family="monospace">area:samples</text>
+    <rect x="150" y="472" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="472" width="210" height="10" rx="2" fill="#3fb950" opacity="0.85"/>
+    <text x="468" y="482" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">6/6 (100%)</text>
+  <line x1="16" y1="506" x2="464" y2="506" stroke="#21262d" stroke-width="1"/>
+
+  <!-- language -->
+  <text x="16" y="518" fill="#8b949e" font-size="10" font-family="monospace">言語内訳</text>
+
+    <circle cx="140" cy="531" r="4" fill="#F7DF1E"/>
+    <text x="10" y="536" fill="#c9d1d9" font-size="11" font-family="monospace">JavaScript</text>
+    <rect x="150" y="526" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="526" width="183" height="10" rx="2" fill="#F7DF1E" opacity="0.85"/>
+    <text x="468" y="536" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">87.2%</text>
+    <circle cx="140" cy="553" r="4" fill="#e34c26"/>
+    <text x="10" y="558" fill="#c9d1d9" font-size="11" font-family="monospace">HTML</text>
+    <rect x="150" y="548" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="548" width="14" height="10" rx="2" fill="#e34c26" opacity="0.85"/>
+    <text x="468" y="558" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">6.6%</text>
+    <circle cx="140" cy="575" r="4" fill="#563d7c"/>
+    <text x="10" y="580" fill="#c9d1d9" font-size="11" font-family="monospace">CSS</text>
+    <rect x="150" y="570" width="210" height="10" rx="2" fill="#21262d"/>
+    <rect x="150" y="570" width="13" height="10" rx="2" fill="#563d7c" opacity="0.85"/>
+    <text x="468" y="580" fill="#8b949e" font-size="10" font-family="monospace" text-anchor="end">6.2%</text>
+  <line x1="16" y1="604" x2="464" y2="604" stroke="#21262d" stroke-width="1"/>
+
+  <!-- contributors -->
+  <text x="16" y="616" fill="#8b949e" font-size="10" font-family="monospace">Contributors:</text>
+
+    <rect x="100" y="604" width="44" height="18" rx="4" fill="#21262d" stroke="#30363d" stroke-width="0.5"/>
+    <text x="122" y="617" fill="#8b949e" font-size="9" font-family="monospace" text-anchor="middle">Azsoft-</text>
+    <rect x="152" y="604" width="44" height="18" rx="4" fill="#21262d" stroke="#30363d" stroke-width="0.5"/>
+    <text x="174" y="617" fill="#8b949e" font-size="9" font-family="monospace" text-anchor="middle">claude</text>
+    <rect x="204" y="604" width="44" height="18" rx="4" fill="#21262d" stroke="#30363d" stroke-width="0.5"/>
+    <text x="226" y="617" fill="#8b949e" font-size="9" font-family="monospace" text-anchor="middle">github-</text>
+
+  <!-- footer -->
+  <text x="464" y="634" fill="#30363d" font-size="9" font-family="monospace" text-anchor="end">Generated by scripts/gen-metrics.mjs</text>
+  </g>
+</svg>
